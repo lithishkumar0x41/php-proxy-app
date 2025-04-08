@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: php-proxy-app
+    env: php
+    buildCommand: 'composer install'
+    startCommand: 'php -S 0.0.0.0:80 -t public'
+    routes:
+      - type: path
+        path: /proxy
+        destination: /index.php
+    plan: free
+    branches:
+      production:
+        env:
+          PHP_VERSION: '7.4'
+          
+  # Optionally, if you need a database service (e.g., MySQL), you can add that too
+  # Uncomment the following section if needed:
+  # - type: database
+  #   name: php-proxy-app-database
+  #   database: mysql
+  #   plan: free
