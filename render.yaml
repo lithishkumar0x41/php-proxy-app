@@ -3,5 +3,4 @@ services:
     name: php-proxy-app
     env: docker
     buildCommand: 'docker build -t php-proxy-app .'
-    startCommand: 'docker run -p 80:80 php-proxy-app'
     plan: free
